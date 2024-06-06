@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>未完了のTODO一覧</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<header>
-    <h1>未完了のTODO一覧</h1>
-    <nav>
-        <a href="new_todo.html">新しいTODOを作成</a>
-        <a href="completed_todos.html">完了済みTODO</a>
-    </nav>
-</header>
+<% if @params[:complete] == "1"  %>
+  <% @page_title = "完了済みのTODO一覧" %>
+<% else %>
+  <% @page_title = "未完了のTODO一覧" %>
+<% end %>
+
 <main>
-    <ul class="todo-list">
-        <li class="todo-item">TODO 1 <a href="edit_todo.html">編集</a> <a href="#" class="delete">削除</a></li>
-        <li class="todo-item">TODO 2 <a href="edit_todo.html">編集</a> <a href="#" class="delete">削除</a></li>
-        <!-- その他のTODO項目 -->
-    </ul>
+  <ul class="todo-list">
+    <% @tasks.each do |task| %>
+    <li class="todo-item">
+      <%= task.title %>
+      <%= link_to "編集", edit_task_path(task) %>
+      <%= link_to "削除", task_path(task), method: :delete, class:"delete" %>
+      <%= link_to "完了", complete_task_path(task), method: :patch, class:"complete" %>
+    </li>
+    <% end %>
+  </ul>
 </main>
-</body>
-</html>

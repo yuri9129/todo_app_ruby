@@ -1,0 +1,6 @@
+<h1><%= @page_title %></h1>
+<nav>
+  <%= link_to "新しいTODOを作成", new_task_path %>
+  <%= link_to "未完了TODO"%>
+  <%= link_to "完了済みTODO", tasks_path(complete: "1")  %>
+</nav>

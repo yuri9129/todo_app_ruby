@@ -1,0 +1,4 @@
+<% @page_title = "新しいTODOを作成" %>
+
+  <%= render "error", obj:@task%>
+  <%= render "form", task: @task, tags: @tags, submit: "作成" %>

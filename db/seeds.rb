@@ -12,3 +12,8 @@
   task.description = "タスク詳細#{idx}"
   task.save
 end
+
+tags = ["仕事", "生活", "その他"]
+tags.each do |tag|
+  Tag.find_or_create_by(name: tag)
+end

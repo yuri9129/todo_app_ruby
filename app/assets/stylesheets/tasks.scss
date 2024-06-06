@@ -21,6 +21,24 @@ nav a {
   text-decoration: none;
 }
 
+.flash {
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.25rem;
+}
+
+.flash-notice {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.flash-alert {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
 main {
   padding: 1rem;
 }
@@ -48,6 +66,9 @@ main {
   color: #dc3545;
 }
 
+.todo-item a.compete {
+  color: #28a745;
+}
 .todo-form .form-group {
   margin-bottom: 1rem;
 }
@@ -59,13 +80,14 @@ main {
 
 .todo-form input[type="text"],
 .todo-form textarea {
-  width: 100%;
+  width: calc(100% - 20px); /* 20pxの右余白を確保 */
   padding: 0.5rem;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
+  box-sizing: border-box; /* 余白を含む幅計算 */
 }
 
-.todo-form button {
+.todo-form input[type="submit"] {
   background-color: #007bff;
   color: white;
   padding: 0.5rem 1rem;
@@ -74,6 +96,10 @@ main {
   cursor: pointer;
 }
 
-.todo-form button:hover {
+.todo-form input[type="submit"]:hover {
   background-color: #0056b3;
+}
+
+.todo-form .form-group label input[type="checkbox"] {
+  margin-right: 0.5rem;
 }
